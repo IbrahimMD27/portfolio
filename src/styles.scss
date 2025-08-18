@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom reusable button styles based on your original design */
+@layer components {
+  .td-btn {
+    @apply inline-block px-6 py-2 rounded-full font-semibold tracking-wide uppercase transition-colors duration-300;
+  }
+  .td-btn.small {
+    @apply px-4 py-1 text-sm;
+  }
+  .td-btn.outline {
+    @apply bg-transparent border-2;
+  }
+  .td-btn.pink {
+    @apply border-td-pink text-td-pink hover:bg-td-pink hover:text-white;
+  }
+  .td-btn.green {
+    @apply border-td-green text-td-green hover:bg-td-green hover:text-white;
+  }
+}
+
+/* Base body styling */
+body {
+  @apply bg-gray-100 text-td-dark font-sans;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}

@@ -1,0 +1,76 @@
+<div class="min-h-screen flex flex-col items-center justify-center px-8 bg-white font-sans">
+
+  <!-- Navbar -->
+  <nav class="mb-12">
+    <ul class="flex space-x-10 text-lg font-medium text-gray-700">
+      <li class="relative group cursor-pointer">
+        <a href="#about" class="hover:text-gray-900 transition-colors">About Me</a>
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
+      </li>
+      <li class="relative group cursor-pointer">
+        <a href="/projects" class="hover:text-gray-900 transition-colors">Projects</a>
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
+      </li>
+      <li class="relative group cursor-pointer">
+        <a href="#contact" class="hover:text-gray-900 transition-colors">Contact</a>
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full transition-all duration-300 group-hover:w-full"></span>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="about" class="max-w-4xl mx-auto text-center">
+    
+    <!-- Sleeker Main Heading -->
+    <h1 class="text-6xl md:text-5xl font-extrabold text-gray-900 leading-snug mb-4 tracking-tight">
+      <span class="block">Hi, I'm Mohamed Ibrahim</span>
+      <span class="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">
+        Entry Level Developer
+      </span>
+    </h1>
+    
+    <!-- Introduction Text -->
+    <p class="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+      Passionate about building modern, performant, and user-focused web applications.
+      I enjoy crafting clean, responsive designs that solve real problems.
+    </p>
+    
+    <!-- Skills Preview -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <span
+        *ngFor="let skill of skills"
+        class="px-4 py-2 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+        {{ skill }}
+      </span>
+    </div>
+    
+    <!-- Resume Button -->
+  <div class="flex gap-4 justify-center">
+   
+    <button
+    (click)="onResumeDownload()"
+    class="px-6 py-3 bg-gray-900 text-white rounded-lg shadow hover:bg-gray-800 transition">
+    Download Resume
+    </button>
+  </div>
+
+    <app-level-ma></app-level-ma>
+    
+    <!-- Animated underline -->
+    <div class="mt-8 flex justify-center">
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="bg-gray-50 py-16 px-8 mt-20">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Contact Me</h2>
+    <p class="text-gray-600 mb-6">Feel free to reach out for collaborations or opportunities.</p>
+    <div class="space-y-2 text-gray-700">
+      <p>Email: <a href="mailto:ibrahim@example.com" class="text-blue-600 hover:underline">md.ibrahimv26@gmail.com</a></p>
+      <p>Phone: +91 6381190030</p>
+      <p>Location: Chennai, India</p>
+    </div>
+  </div>
+</div>

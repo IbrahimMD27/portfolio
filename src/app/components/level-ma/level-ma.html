@@ -1,0 +1,110 @@
+<div class="relative w-full max-w-3xl mx-auto py-16 px-4">
+  <!-- Curved Path -->
+  <div class="absolute top-1/2 left-0 w-full h-24 transform -translate-y-1/2">
+    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M 0 50 Q 25 0, 50 50 Q 75 100, 100 50"
+            stroke="#d1d5db"
+            stroke-width="1"
+            stroke-dasharray="4 4"
+            fill="none" />
+    </svg>
+  </div>
+
+  <!-- Level Buttons -->
+  <div class="relative flex justify-between items-center">
+    <!-- Skills -->
+    <div class="flex flex-col items-center">
+      <button
+        (click)="openPopup('skills')"
+        class="z-10 w-24 h-24 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      </button>
+      <h3 class="mt-4 text-lg font-semibold">Skills</h3>
+    </div>
+
+    <!-- Experience -->
+    <div class="flex flex-col items-center">
+      <button
+        (click)="openPopup('experience')"
+        class="z-10 w-24 h-24 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </button>
+      <h3 class="mt-4 text-lg font-semibold">Experience</h3>
+    </div>
+
+    <!-- Contact -->
+    <div class="flex flex-col items-center">
+      <button
+        (click)="openPopup('contact')"
+        class="z-10 w-24 h-24 bg-white border-4 border-pink-500 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </button>
+      <h3 class="mt-4 text-lg font-semibold">Contact</h3>
+    </div>
+  </div>
+
+  <!-- Popup Modal -->
+  <div *ngIf="selected" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-11/12 max-w-lg relative animate-fadeIn">
+      <!-- Close Button -->
+      <button (click)="closePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
+        ✕
+      </button>
+
+      <!-- Skills Popup -->
+      <ng-container *ngIf="selected === 'skills'">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Skills</h2>
+        <ul class="grid grid-cols-2 gap-4 text-gray-700 font-medium">
+          <li *ngFor="let skill of skills" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
+            {{ skill }}
+          </li>
+        </ul>
+      </ng-container>
+
+      <!-- Experience Popup -->
+      <ng-container *ngIf="selected === 'experience'">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Experience</h2>
+        <div class="space-y-4">
+          <div class="p-4 rounded-lg bg-beige hover:bg-gray-200 transition">
+            <h3 class="font-semibold text-gray-900">Frontend Developer Intern — Menerix</h3>
+            <p class="text-sm text-gray-600">Jun 2025</p>
+            <p class="mt-2 text-gray-700">
+              Contributed to performance optimizations, modular reusable code, and developed responsive UI components using Angular and TypeScript.
+            </p>
+          </div>
+          <div class="p-4 rounded-lg bg-gray-100 hover:bg-gray-200 transition">
+            <h3 class="font-semibold text-gray-900">Data Analytics (Virtual Internship) — KPMG</h3>
+            <p class="mt-2 text-gray-700">
+              Gained practical experience in data analysis and visualization using Python and Excel, identified trends in customer data, and created interactive dashboards.
+            </p>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Contact Popup -->
+      <ng-container *ngIf="selected === 'contact'">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Contact</h2>
+        <div class="space-y-3 text-gray-700">
+          <p><strong>Email:</strong> md.ibrahimv26@gmail.com</p>
+          <p><strong>Phone:</strong> +91 6381190030</p>
+          <p><strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/md-ibrahim-860b0026a/" target="_blank" class="text-blue-600 underline">
+              View Profile
+            </a>
+          </p>
+          <p><strong>GitHub:</strong>
+            <a href="https://github.com/IbrahimMD27" target="_blank" class="text-blue-600 underline">
+              View Profile
+            </a>
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
